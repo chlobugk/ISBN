@@ -52,5 +52,10 @@ class TestIsbnLength < MiniTest::Test
 		assert_equal(false, yes_to_x(num))
 	end
 
+	def test_check_digit_returns_true
+		num = '7421394761s'
+		assert_equal(true, check_digit(num))
+	end
+
 
 end
