@@ -85,7 +85,10 @@ class TestIsbn13 < MiniTest::Test
 		assert_equal('0987656784324', remove_hyphens(num))
 	end
 
-
+	def test_no_letters
+		num = '12345b7890r31'
+		assert_equal(false, no_letters(num))
+	end
 
 
 

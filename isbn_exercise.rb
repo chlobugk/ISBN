@@ -20,10 +20,8 @@ def no_letters(number)
 
 	if number.match(/[a-z A-Z]/)
 		false
-
 	else
 		true
-
 	end
 end
 
@@ -74,6 +72,15 @@ end
 def remove_hyphens(num)
 
 	num.gsub(/[ -]/, '')
+end
+
+def no_letters(num)
+
+	if num.match(/[a-z A-Z]/)
+		false
+	else
+		true
+	end
 end
 
 
