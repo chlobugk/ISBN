@@ -37,7 +37,7 @@ def yes_to_x(numb)
 end
 
 def check_digit(check)
-	
+	valid = false
 	total = 0
 	index_pos = 0
 	index_count = 1
@@ -54,13 +54,12 @@ def check_digit(check)
 	digit = total % 11
 
 	if digit == 10 && check[-1].match(/[xX]/) 
-		true
+		valid = true
 	elsif digit == check[-1].to_i 
-		true
-	elsif 
-		false
+		valid = true
+	
 	end
-
+	valid
 end
 
 

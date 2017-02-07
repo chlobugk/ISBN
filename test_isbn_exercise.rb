@@ -58,11 +58,14 @@ class TestIsbnLength < MiniTest::Test
 	end
 
 	def test_check_also_returns_true
-		check = '0-321-14653-0'
+		check = '0-321-14653 0'
 		assert_equal(true, check_digit(check))
 	end
 
-	
+	def test_check_returns_false
+		check = '7421394 762'
+		assert_equal(false, check_digit(check))
+	end
 
 
 end
