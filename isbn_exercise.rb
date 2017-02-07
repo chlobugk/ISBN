@@ -1,7 +1,7 @@
 def valid_digits(num)
 # passing in a string, return a boolean
 
-	if num.length == 10
+	if num.length == 10 
 		true
 	else 
 		false
@@ -70,6 +70,14 @@ def valid_13_digits(num)
 		false
 	end
 end
+
+def remove_hyphens(num)
+
+	num.gsub(/[ -]/, '')
+end
+
+
+
 
 
 

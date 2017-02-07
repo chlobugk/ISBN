@@ -66,14 +66,28 @@ class TestIsbnLength < MiniTest::Test
 		check = '7421394 762'
 		assert_equal(false, check_digit(check))
 	end
-
 end
+
 
 class TestIsbn13 < MiniTest::Test
 	def test_check_13_length
 		num = '1234567890123'
 		assert_equal(true, valid_13_digits(num))
 	end
+
+	def test_13_with_spaces_returns
+		num = '123 456 789 0123'
+		assert_equal('1234567890123', remove_hyphens(num))
+	end
+
+	def test_13_with_hyphens_returns
+		num = '098 765-678-4 324'
+		assert_equal('0987656784324', remove_hyphens(num))
+	end
+
+
+
+
 
 
 end
