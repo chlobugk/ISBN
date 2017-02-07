@@ -67,5 +67,13 @@ class TestIsbnLength < MiniTest::Test
 		assert_equal(false, check_digit(check))
 	end
 
+end
+
+class TestIsbn13 < MiniTest::Test
+	def test_check_13_length
+		num = '1234567890123'
+		assert_equal(true, valid_13_digits(num))
+	end
+
 
 end

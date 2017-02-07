@@ -62,6 +62,15 @@ def check_digit(check)
 	valid
 end
 
+def valid_13_digits(num)
+
+	if num.length == 13
+		true
+	else 
+		false
+	end
+end
+
 
 
 
