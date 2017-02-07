@@ -90,6 +90,16 @@ class TestIsbn13 < MiniTest::Test
 		assert_equal(false, no_letters(num))
 	end
 
+	def test_check_13
+		check = '9780470059029'
+		assert_equal(true, check_digit_13(check))
+	end
+
+	def test_check_13_false
+		check = '978 013-149 5057'
+		assert_equal(false, check_digit_13(check))
+	end
+
 
 
 

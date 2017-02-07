@@ -83,6 +83,37 @@ def no_letters(num)
 	end
 end
 
+def check_digit_13(check)
+
+valid = false
+total = 0
+index_pos = 0
+even = 2
+
+	counter = check.chop
+	counter.length.times do
+
+	if even % 2 == 0
+		total = total + check[index_pos].to_i * 1
+	else 
+		total = total + check[index_pos].to_i * 3
+	end
+		even += 1
+		index_pos += 1
+		
+	end	
+
+	digit = total % 10
+
+		if digit == check[-1].to_i
+			valid = true
+		else
+			valid = false
+
+	
+		end
+		valid
+end
 
 
 
