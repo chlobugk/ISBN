@@ -37,36 +37,30 @@ def yes_to_x(numb)
 end
 
 def check_digit(check)
+	
+	total = 0
 	index_pos = 0
+	index_count = 1
 	
 
-	# counter = check.chop
-	# counter.length.times do 
+	counter = check.chop
+	counter.length.times do 
 
-	# 	total = total + check[index_pos].to_i * index_count
-	# 	index_pos += 1
-	# 	index_count += 1
-	# end
+		total = total + check[index_pos].to_i * index_count
+		index_pos = index_pos + 1
+		index_count = index_pos + 1
+	end
 
-	# check_digit = total % 11
+	digit = total % 11
 
-	# if check_digit == 10 && check[-1].to_i == check_digit
-	# 	true
-	# else
-	# 	false
-	# end
-	
-
-
-
-
-	check[index_pos].to_i
-
-	if (((check[-10] * 1) + (check[-9] * 2) + (check[-8] * 3) + (check[-7] * 4) + (check[-6] * 5) + (check[-5] * 6) + (check[-4] * 7) + (check[-3] * 8) + (check[-2] * 9)) % 11) == check[-1]
+	if digit == 10 && check[-1].match(/[xX]/) 
 		true
-	else
+	elsif digit == check[-1].to_i 
+		true
+	elsif 
 		false
 	end
+
 end
 
 

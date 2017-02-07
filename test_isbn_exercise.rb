@@ -53,9 +53,16 @@ class TestIsbnLength < MiniTest::Test
 	end
 
 	def test_check_digit_returns_true
-		num = '7421394761s'
-		assert_equal(true, check_digit(num))
+		check = '0471958697'
+		assert_equal(true, check_digit(check))
 	end
+
+	def test_check_also_returns_true
+		check = '0-321-14653-0'
+		assert_equal(true, check_digit(check))
+	end
+
+	
 
 
 end
