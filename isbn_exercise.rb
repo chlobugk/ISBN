@@ -111,24 +111,44 @@ def check_digit_13(num)
 end
 
 
-def final_isbn(number)
+def combined_10(number)
 
 	final = remove_spaces_dashes(number)
 
-		if 	no_symbols(final) && final.length == 10 
-			no_letters(final)
+		if 	final.length == 10 && no_symbols(final) 
 			yes_to_x(final)
 			check_digit_10(final)
-				
-				
-		else final.length == 13
+		else
+			false
+		end
+end
+
+def combined_13(number)
+
+	final = remove_spaces_dashes(number)
+					
+		if final.length == 13 && no_symbols(final)
 			no_letters(final)
-			no_symbols(final)
 			check_digit_13(final)
-			
+		else
+			false
 				
 		end
 
+end
+
+def final_isbn(num)
+
+	final = remove_spaces_dashes(num)
+
+	if final.length == 10
+		combined_10(num) 
+		
+	else final.length == 13
+		combined_13(num) 
+		
+	end
+	
 end
 
 

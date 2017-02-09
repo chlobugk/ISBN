@@ -127,6 +127,51 @@ end
 class TestIsbnValid < MiniTest::Test 
 	def test_10_passes_true
 		num = '0-321-14653 0'
+		assert_equal(true, combined_10(num))
+	end
+
+	def test_13_passes_true
+		num = '97801-31495050'
+		assert_equal(true, combined_13(num))
+	end
+
+	def test_returns_false
+		num = '9780131495055'
+		assert_equal(false, combined_13(num))
+	end
+
+	def test_symbols_false
+		num = '047@958697'
+		assert_equal(false, combined_10(num))
+	end
+
+	def test_x_true
+		num = '877195869x'
+		assert_equal(true, combined_10(num))
+	end
+
+	def test_capital_X_true
+		num = '877195869X'
+		assert_equal(true, combined_10(num))
+	end
+
+	def test_letter_false
+		num = '877x958691'
+		assert_equal(false, combined_10(num))
+	end
+
+	def test_at_sign_where_0_passes_false
+		num = '@321146530'
+		assert_equal(false, combined_10(num))
+	end
+
+	def test_at_sign_where_0_in_13
+		num = '978&131495050'
+		assert_equal(false, combined_13(num))
+	end
+
+	def test_10_passes_true
+		num = '0-321-14653 0'
 		assert_equal(true, final_isbn(num))
 	end
 
@@ -162,6 +207,11 @@ class TestIsbnValid < MiniTest::Test
 
 	def test_at_sign_where_0_passes_false
 		num = '@321146530'
+		assert_equal(false, final_isbn(num))
+	end
+
+	def test_at_sign_where_0_in_13
+		num = '978&131495050'
 		assert_equal(false, final_isbn(num))
 	end
 
