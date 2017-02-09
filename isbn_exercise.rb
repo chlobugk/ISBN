@@ -44,7 +44,7 @@ end
 
 def yes_to_x(numb)
 
-	if numb[-1].match(/[0-9 x X]/)
+	if numb[-1].match(/[0-9 x X]/) 
 		true
 	else 
 		false
@@ -59,7 +59,6 @@ def check_digit_10(num)
 	index_num = 0 #1st number is in 0 position
 	index_pos = 1 #each digit: 1st, 2nd, etc
 	
-
 	counter = num.chop
 	counter.length.times do 
 
@@ -67,6 +66,7 @@ def check_digit_10(num)
 		index_num = index_num + 1
 		index_pos = index_num + 1
 	end
+
 
 	digit = total % 11
 
@@ -112,22 +112,23 @@ end
 
 
 def final_isbn(number)
-	
+
 	final = remove_spaces_dashes(number)
 
-		if final.length == 10
+		if 	no_symbols(final) && final.length == 10 
 			no_letters(final)
-			no_symbols(final)
 			yes_to_x(final)
 			check_digit_10(final)
+				
 				
 		else final.length == 13
 			no_letters(final)
 			no_symbols(final)
 			check_digit_13(final)
+			
 				
 		end
-		
+
 end
 
 

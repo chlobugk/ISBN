@@ -160,5 +160,11 @@ class TestIsbnValid < MiniTest::Test
 		assert_equal(false, final_isbn(num))
 	end
 
+	def test_at_sign_where_0_passes_false
+		num = '@321146530'
+		assert_equal(false, final_isbn(num))
+	end
+
+
 
 end
