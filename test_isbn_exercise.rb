@@ -37,6 +37,16 @@ class TestIsbnLength < MiniTest::Test
 		assert_equal(true, no_letters(num))
 	end
 
+	def test_symbol_false
+		num = '123@567890'
+		assert_equal(false, no_symbols(num))
+	end
+
+	def test_no_symbol_true
+		num = '0987654321'
+		assert_equal(true, no_symbols(num))
+	end
+
 	def test_last_x_returns_true
 		num = '123456789x'
 		assert_equal(true, yes_to_x(num))
@@ -72,17 +82,17 @@ end
 class TestIsbn13 < MiniTest::Test
 	def test_check_13_length
 		num = '1234567890123'
-		assert_equal(true, valid_13_digits(num))
+		assert_equal(true, valid_digits(num))
 	end
 
 	def test_13_with_spaces_returns
 		num = '123 456 789 0123'
-		assert_equal('1234567890123', remove_hyphens(num))
+		assert_equal('1234567890123', remove_spaces(num))
 	end
 
 	def test_13_with_hyphens_returns
 		num = '098 765-678-4 324'
-		assert_equal('0987656784324', remove_hyphens(num))
+		assert_equal('0987656784324', remove_spaces(num))
 	end
 
 	def test_no_letters
@@ -90,17 +100,30 @@ class TestIsbn13 < MiniTest::Test
 		assert_equal(false, no_letters(num))
 	end
 
+	def test_symbol_false
+		num = '978@1314&5050'
+		assert_equal(false, no_symbols(num))
+	end
+
+	def test_no_symbol_true
+		num = '9780131495050'
+		assert_equal(true, no_symbols(num))
+	end
+
 	def test_check_13
-		check = '9780470059029'
-		assert_equal(true, check_digit_13(check))
+		num = '9780131495050'
+		assert_equal(true, check_digit_13(num))
 	end
 
 	def test_check_13_false
-		check = '978 013-149 5057'
-		assert_equal(false, check_digit_13(check))
+		num = '97801314 95057'
+		assert_equal(false, check_digit_13(num))
 	end
 
-
-
-
 end
+
+# class TestIsbnValid < MiniTest::Test 
+# 	def 
+
+
+# end
