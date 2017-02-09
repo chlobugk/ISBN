@@ -112,25 +112,22 @@ end
 
 
 def final_isbn(number)
-	valid = false
+	
 	final = remove_spaces_dashes(number)
 
 		if final.length == 10
 			no_letters(final)
 			no_symbols(final)
 			yes_to_x(final)
-			if check_digit_10(final) == true
-				valid = true
-			end
-
+			check_digit_10(final)
+				
 		else final.length == 13
 			no_letters(final)
 			no_symbols(final)
-			if check_digit_13(final) == true
-				valid = true
-			end
+			check_digit_13(final)
+				
 		end
-	valid
+		
 end
 
 
