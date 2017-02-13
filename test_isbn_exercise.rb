@@ -215,6 +215,11 @@ class TestIsbnValid < MiniTest::Test
 		assert_equal(false, final_isbn(num))
 	end
 
+	def test_1_false
+		num = '1'
+		assert_equal(false, final_isbn(num))
+	end
+
 
 
 end
